@@ -18,6 +18,11 @@ env:
   - TOXENV=py27 VENDOR=no WHEELS=yes
   - TOXENV=py34 VENDOR=no WHEELS=yes
 
+cache:
+  pip: true
+  directories:
+  - /dev/shm/wheels
+
 install: .travis/install.sh
 
 script: .travis/run.sh
