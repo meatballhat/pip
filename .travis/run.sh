@@ -6,6 +6,10 @@ set -x
 # our tests use.
 export LC_CTYPE=en_US.UTF-8
 
+if [[ -d /dev/shm ]] ; then
+  TMPDIR=/dev/shm
+fi
+
 export TMPDIR=${TMPDIR:-/tmp}
 
 # We want to create the virtual environment here, but not actually run anything
