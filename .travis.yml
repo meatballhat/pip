@@ -3,16 +3,16 @@ language: python
 sudo: false
 
 env:
-  - TOXENV=pep8
-  - TOXENV=py3pep8
-  - TOXENV=docs
-  - TOXENV=packaging
-  - TOXENV=py26
+  #- TOXENV=pep8
+  #- TOXENV=py3pep8
+  #- TOXENV=docs
+  #- TOXENV=packaging
+  #- TOXENV=py26
   - TOXENV=py27
-  - TOXENV=py32
-  - TOXENV=py33
+  #- TOXENV=py32
+  #- TOXENV=py33
   - TOXENV=py34
-  - TOXENV=pypy
+  #- TOXENV=pypy
   - TOXENV=py27 VENDOR=no
   - TOXENV=py34 VENDOR=no
   - TOXENV=py27 VENDOR=no WHEELS=yes
