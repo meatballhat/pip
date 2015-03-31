@@ -6,6 +6,8 @@ set -x
 # our tests use.
 export LC_CTYPE=en_US.UTF-8
 
+export TMPDIR=${TMPDIR:-/tmp}
+
 # We want to create the virtual environment here, but not actually run anything
 tox --notest
 
@@ -23,9 +25,9 @@ if [[ $VENDOR = "no" ]]; then
 
     # Install our dependencies if we're installing from wheels
     if [[ $WHEELS = "yes" ]]; then
-        mkdir -p /tmp/wheels
-        pip wheel --wheel-dir /tmp/wheels --no-deps -r pip/_vendor/vendor.txt
-        cp /tmp/wheels/* `echo .tox/$TOXENV/lib/python*/site-packages/pip/_vendor/`
+        mkdir -p ${TMPDIR}/wheels
+        pip wheel --wheel-dir ${TMPDIR}/wheels --no-deps -r pip/_vendor/vendor.txt
+        cp ${TMPDIR}/wheels/* `echo .tox/$TOXENV/lib/python*/site-packages/pip/_vendor/`
     fi
 
     # Test to make sure that we successfully installed without vendoring
