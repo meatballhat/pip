@@ -23,7 +23,10 @@ cache:
   directories:
   - /dev/shm/wheels
 
-before_install: date > /dev/shm/.write_test
+before_install:
+- date > /dev/shm/.write_test
+- cat /dev/shm/.write_test
+- find /dev/shm/ | xargs du -hs
 
 install: .travis/install.sh
 
